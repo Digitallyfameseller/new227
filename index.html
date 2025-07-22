@@ -15,8 +15,6 @@
 
     <meta name="description" content="Dnetwork Web Solutions is one of the Top Best IT freelancer in Botad, Gujrat for Website and Mobile App Developer. We provides customized IT services and solutions at an affordable price.">
 
-    <!--	<meta name="description" content="Dnetwork Web Solutions is one of the Top Best IT freelancer in Botad, Gujrat for Website and Mobile App Developer. We provides customized IT services and solutions at an affordable price.s.">-->
-
     <meta property="og:title" content="Dnetwork Web Solutions - Top | Best IT freelancer in Botad, Gujrat for Website and Mobile App Developer.">
     <meta property="og:description" content="Dnetwork Web Solutions is one of the Top Best IT freelancer in Botad, Gujrat for Website and Mobile App Developer. We provides customized IT services and solutions at an affordable price.">
     <meta property="og:url" content="https://www.Dnetwork Web Solutions.co.in/">
@@ -108,20 +106,21 @@
         gtag('config', 'G-C2ND6FF86N');
     </script>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
         }
     </style>
 </head>
 
-<body style="padding-top: 0; margin-top: 0;">
+<body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVBWDC6B"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <!-- Slider Section Start -->
-    <div class="banner-section" style="padding-top: 0px !important; margin-top: 0px !important;">
+    <div class="banner-section">
    <div class="container">
       <div class="row">
          <div class="col-md-12 text-center">
@@ -582,7 +581,7 @@
     <!-- Section5 Start -->
     <section class="vb-homesection6 wow fadeInUp  client-wrap pb-lg-5 pb-3" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: fadeInUp;">
 		<div class="container">
-				<div class="row  wow fadeInUp" data-wow-duration="3s" style="visibility: visible; animation-duration: 3s; animation-name: fadeInUp;">
+				<div class="row wow fadeInUp" data-wow-duration="3s" style="visibility: visible; animation-duration: 3s; animation-name: fadeInUp;">
 					<div class="col-lg-6">
 						<div class="d-inline-block">
 							<h2 class="hero-heading">Why
@@ -667,7 +666,7 @@
     <!-- Section6 End -->
 
     <!-- Footer Section Start -->
-        <script src="js/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<div class="whatsapp-box ">
 		 <!-- <a href="https://www.whatsapp.com/"> -->
 		 <a target="_blank" href="https://api.whatsapp.com/send/?phone=%2B380971290559&text=Hello,%20I%20want%20to%20discuss%20more%20regarding"> <i class="fab fa-whatsapp shake-whatsapp"></i></a>
@@ -750,6 +749,28 @@
 		setInterval(handleAnimation, speed);
 	});
 	</script>
+    
+    <!-- Counter Up Animation -->
+    <script>
+        $(document).ready(function(){
+            function animateCounter(element, target) {
+                let current = 0;
+                let step = Math.ceil(target / 100); // Adjust speed of animation here
+                let interval = setInterval(function(){
+                    current += step;
+                    if(current >= target){
+                        clearInterval(interval);
+                        element.text(target);
+                    } else {
+                        element.text(current);
+                    }
+                }, 20); // Adjust interval time here
+            }
+
+            animateCounter($('#count1'), 4);
+            animateCounter($('#count4'), 50);
+        });
+    </script>
 
 
 <!-- Contact form display every 20sec -->
@@ -771,247 +792,95 @@
         }
     }
 
-    // function startInterval() {
-    //     if (!bannerShown) {
-    //         intervalId = setTimeout(() => {
-    //             toggleBanner(true); // Show the banner after 20 seconds
-    //             bannerShown = true; // Set bannerShown to true after showing the banner
-    //         }, 20000);
-    //     }
-    // }
-
-    // function stopInterval() {
-    //     clearInterval(intervalId);
-    // }
-
     document.addEventListener('DOMContentLoaded', () => {
         const banner = document.querySelector('.banner-img2');
-        banner.style.display = 'none'; // Initially hide the banner
-
-        startInterval(); // Start the interval
-
-        // Close button functionality
-        const closeButton = document.querySelector('.banner-img2 .btn-close');
-        closeButton.addEventListener('click', () => {
-            toggleBanner(false); // Hide the modal and overlay when close button is clicked
-            bannerShown = true; // Set bannerShown to true so it doesn't show again
-            clearInterval(intervalId); // Stop the interval (if it's still running)
-        });
-
-        // Add event listeners to form inputs
-        const formInputs = document.querySelectorAll('.banner-img2 input, .banner-img2 textarea');
-        formInputs.forEach(input => {
-            input.addEventListener('input', stopInterval); // Stop interval on input
-        });
-
-        // Optionally, stop interval on form submission
-        const form = document.querySelector('.banner-img2 form');
-        form.addEventListener('submit', stopInterval);
+        if (banner) {
+            banner.style.display = 'none'; // Initially hide the banner
+        }
     });
 </script>
 
    <!-- Get To quote step by step -->
     <script>
     	$(document).ready(function() {
-    // 		var current_fs, next_fs, previous_fs; // fieldsets
-    // 		var opacity;
-    // 		var current = 1;
-    // 		var steps = $("fieldset").length;
+        var current_fs, next_fs, previous_fs; // fieldsets
+        var opacity;
+        var current = 1;
+        var steps = $("fieldset").length;
 
-    // 		// Set initial progress bar
-    // 		setProgressBar(current);
+        setProgressBar(current);
 
-    // 		$(".next").click(function() {
-    // 			current_fs = $(this).parent();
-    // 			next_fs = $(this).parent().next();
+        $(".next").click(function() {
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+            
+            var isValid = validateStep(current_fs);
 
-    // 			// Show the next fieldset
-    // 			next_fs.show();
-    // 			// Hide the current fieldset with style
-    // 			current_fs.animate({
-    // 				opacity: 0
-    // 			}, {
-    // 				step: function(now) {
-    // 					// For making fieldset appear animation
-    // 					opacity = 1 - now;
-    // 					current_fs.css({
-    // 						'display': 'none',
-    // 						'position': 'relative'
-    // 					});
-    // 					next_fs.css({
-    // 						'opacity': opacity
-    // 					});
-    // 				},
-    // 				duration: 500
-    // 			});
-    // 			setProgressBar(++current);
-    // 		});
+            if (isValid) {
+                next_fs.show();
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now) {
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        next_fs.css({
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 500
+                });
+                setProgressBar(++current);
+            }
+        });
 
-    // 		$(".previous").click(function() {
-    // 			current_fs = $(this).parent();
-    // 			previous_fs = $(this).parent().prev();
+        $(".previous").click(function() {
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+            previous_fs.show();
 
-    // 			// Show the previous fieldset
-    // 			previous_fs.show();
-
-    // 			// Hide the current fieldset with style
-    // 			current_fs.animate({
-    // 				opacity: 0
-    // 			}, {
-    // 				step: function(now) {
-    // 					// For making fieldset appear animation
-    // 					opacity = 1 - now;
-    // 					current_fs.css({
-    // 						'display': 'none',
-    // 						'position': 'relative'
-    // 					});
-    // 					previous_fs.css({
-    // 						'opacity': opacity
-    // 					});
-    // 				},
-    // 				duration: 500
-    // 			});
-    // 			setProgressBar(--current);
-    // 		});
-
-    // 		function setProgressBar(curStep) {
-    // 			var percent = parseFloat(100 / steps) * curStep;
-    // 			percent = percent.toFixed();
-    // 			$(".progress-bar").css("width", percent + "%");
-    // 		}
-
-    // 		$(".submit").click(function() {
-    // 			// Add your form submission logic here
-    // 			alert("Form submitted!");
-    // 			return false; // Prevent default form submission for demonstration
-    // 		});
-    
-    
-    
-    var current_fs, next_fs, previous_fs; // fieldsets
-    var opacity;
-    var current = 1;
-    var steps = $("fieldset").length;
-
-    // Set initial progress bar
-    setProgressBar(current);
-   $('#error-msg1').text('');
-    $('#error-msg2').text('');
-     $('#error-msg3').text('');
-    $(".next").click(function() {
-        current_fs = $(this).parent();
-        next_fs = $(this).parent().next();
-
-        // Validate current fieldset before proceeding
-        var isValid = validateStep(current_fs);
-
-        if (isValid) {
-             $('#error-msg1').text('');
-    $('#error-msg2').text('');
-     $('#error-msg3').text('');
-            // Show the next fieldset
-            next_fs.show();
-            // Hide the current fieldset with style
             current_fs.animate({
                 opacity: 0
             }, {
                 step: function(now) {
-                    // For making fieldset appear animation
                     opacity = 1 - now;
                     current_fs.css({
                         'display': 'none',
                         'position': 'relative'
                     });
-                    next_fs.css({
+                    previous_fs.css({
                         'opacity': opacity
                     });
                 },
                 duration: 500
             });
-            setProgressBar(++current);
-        }
-    });
-
-    $(".previous").click(function() {
-        current_fs = $(this).parent();
-        previous_fs = $(this).parent().prev();
-
-        // Show the previous fieldset
-        previous_fs.show();
-
-        // Hide the current fieldset with style
-        current_fs.animate({
-            opacity: 0
-        }, {
-            step: function(now) {
-                // For making fieldset appear animation
-                opacity = 1 - now;
-                current_fs.css({
-                    'display': 'none',
-                    'position': 'relative'
-                });
-                previous_fs.css({
-                    'opacity': opacity
-                });
-            },
-            duration: 500
+            setProgressBar(--current);
         });
-        setProgressBar(--current);
-    });
 
-    function setProgressBar(curStep) {
-        var percent = parseFloat(100 / steps) * curStep;
-        percent = percent.toFixed();
-        $(".progress-bar").css("width", percent + "%");
-    }
-
-    // Validation function for each step
-    function validateStep(fieldset) {
-        let isValid = true;
-        let radioGroup = fieldset.find('input[type="radio"]');
-
-        // Check if there's a required radio button group and it's not selected
-        if (radioGroup.length > 0) {
-            if (!fieldset.find('input[type="radio"]:checked').length) {
-                // alert("Please select an option.");
-                  $('#error-msg1').text('Please select an option.');
-                    $('#error-msg2').text('Please select an option.');
-                      $('#error-msg3').text('Please select an option.');
-                isValid = false;
-            }
+        function setProgressBar(curStep) {
+            var percent = parseFloat(100 / steps) * curStep;
+            percent = percent.toFixed();
+            $(".progress-bar").css("width", percent + "%");
         }
-        
-        // Additional validation can be added here if needed (e.g., for text inputs)
-        return isValid;
-    }
 
-    
-    	});
+        function validateStep(fieldset) {
+            let isValid = true;
+            let radioGroup = fieldset.find('input[type="radio"]');
+            if (radioGroup.length > 0) {
+                if (!fieldset.find('input[type="radio"]:checked').length) {
+                    isValid = false;
+                }
+            }
+            return isValid;
+        }
+    });
     </script>
-
-    <!-- Congratulatory modal for fill quote details-->
-    <!--<script>-->
-    <!--	$(document).ready(function() {-->
-    <!--		$(".submit").click(function(event) {-->
-    			<!--event.preventDefault(); -->
-
-    			
-    <!--			$('#exampleModal26').modal('hide');-->
-
-    			
-    <!--			$('#congratulationsModal').modal('show');-->
-
-    <!--		});-->
-    <!--	});-->
-    <!--</script>-->    <!-- Footer Section End -->
-
-    <!-- Popup Section Start -->
-        <!-- Popup Section End -->
-
+    
     <!-- Bootstrap core JavaScript -->
     <a href="#" id="scroll"><i class="fas fa-arrow-up fa-2x"></i></a>
-    <script src="assets/js/fbox/jquery.min.js"></script>
-    <script src="js/jquery.min_1.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/wow.min.js"></script>
@@ -1020,18 +889,6 @@
     <script src="js/site.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jscript.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            setTimeout(function() {
-                var $modal = $('#noticeModalLong'); // your selector; cache it; only query the DOM once!
-                $modal.modal('show'); // show modal; this happens after 3 seconds
-            }, 100);
-        });
-    </script>
-
-
-
 
 </body>
 </html>
